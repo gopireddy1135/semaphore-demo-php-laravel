@@ -11,6 +11,7 @@ pipeline {
                 sh "sudo apt install curl php-cli php-mbstring git unzip"
                 sh "cd ~"
                 sh "curl -sS https://getcomposer.org/installer -o composer-setup.php"
+                sh "composer install"
             }
         }     
     }
