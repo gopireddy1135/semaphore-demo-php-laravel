@@ -12,7 +12,7 @@ pipeline {
                 sh "chmod +x composer.phar"
                 sh "sudo mv composer.phar /usr/local/bin/composer"
                 sh "composer -V"
-                sh "composer"
+                sh "composer update"
                 sh "composer install"
             }
         }     
