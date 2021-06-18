@@ -10,7 +10,7 @@ pipeline {
                 sh "sudo apt install curl"
                 sh "curl -sS https://getcomposer.org/installer | php"
                 sh "chmod +x composer.phar"
-                sh "mv composer.phar /usr/local/bin/composer"
+                sh "sudo mv composer.phar /usr/local/bin/composer"
                 sh "composer -V"
                 sh "composer"
             }
