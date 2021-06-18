@@ -8,11 +8,10 @@ pipeline {
                 sh "sudo apt-get install php"
                 sh "sudo apt update"
                 sh "sudo apt install curl"
-                sh "php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');""
-                sh "php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;""
-                sh "php composer-setup.php"
-                sh "php -r "unlink('composer-setup.php');""
-                sh "sudo mv composer.phar /usr/local/bin/composer"
+                sh "curl -sS https://getcomposer.org/installer | php"
+                sh "chmod +x composer.phar"
+                sh "mv composer.phar /usr/local/bin/composer"
+                sh "composer -V"
                 sh "composer"
             }
         }     
