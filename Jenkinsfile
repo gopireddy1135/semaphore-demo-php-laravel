@@ -16,7 +16,7 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace && npm install"
                 sh "pwd"
                 sh "composer install"
-                sh "cd ../vendor/bin/phpunit && vendor/bin/phpunit"
+                sh "vendor/bin/phpunit"
             }
         }     
     }
