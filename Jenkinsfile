@@ -15,7 +15,7 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace && npm install"
                 sh "pwd"
                 sh "composer install"
-                sh "php artisan serve"
+                sh "php artisan serve --port 9000"
                 sh "php artisan migrate"
                 sh "vendor/bin/phpunit"
             }
