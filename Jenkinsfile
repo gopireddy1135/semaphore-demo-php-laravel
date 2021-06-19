@@ -16,6 +16,7 @@ pipeline {
                 sh "pwd"
                 sh "composer install"
                 sh "php artisan migrate:rollback"
+                sh "sudo apt-get install php7.3-sqlite3"
                 sh "vendor/bin/phpunit"
             }
         }     
