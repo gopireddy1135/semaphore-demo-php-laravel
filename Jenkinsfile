@@ -12,7 +12,7 @@ pipeline {
                 sh "sudo mv composer.phar /usr/local/bin/composer"
                 sh "composer -V"
                 sh "sudo apt install npm"
-                sh "npm install"
+                sh "npm install -y"
                 sh "sh php artisan"
                 sh "composer create-project laravel/laravel testlaravelproject"
                 sh "cd testlaravelproject"
