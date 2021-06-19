@@ -13,9 +13,7 @@ pipeline {
                 sh "composer -V"
                 sh "sudo apt install npm -y"
                 sh "cd /var/lib/jenkins/workspace && npm install"
-                sh "sh php artisan"
-                sh "composer create-project laravel/laravel testlaravelproject"
-                sh "cd testlaravelproject"
+                sh "pwd"
                 sh "composer install"
             }
         }     
