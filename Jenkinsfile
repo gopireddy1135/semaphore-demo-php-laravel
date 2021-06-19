@@ -16,7 +16,7 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace && npm install"
                 sh "pwd"
                 sh "composer install"
-                sh "php artisan test"
+                sh "php artisan test -yes"
             }
         }     
     }
