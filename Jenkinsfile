@@ -11,6 +11,8 @@ pipeline {
                 sh "chmod +x composer.phar"
                 sh "sudo mv composer.phar /usr/local/bin/composer"
                 sh "composer -V"
+                sh "curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash"
+                sh "sem init"
                 sh "sh php artisan"
                 sh "composer create-project laravel/laravel testlaravelproject"
                 sh "cd testlaravelproject"
