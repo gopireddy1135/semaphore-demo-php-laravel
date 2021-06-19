@@ -20,13 +20,11 @@ pipeline {
             }
         }     
     }
-   stage('Test') {
-      steps {
+       stage('Test') {
+             steps {
                 sh "vendor/bin/phpunit"
-      }
-   }
-}   
-
-   
+             }
+       }
+}
    
    
