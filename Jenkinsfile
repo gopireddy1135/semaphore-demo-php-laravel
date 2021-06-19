@@ -12,10 +12,12 @@ pipeline {
                 sh "chmod +x composer.phar"
                 sh "sudo mv composer.phar /usr/local/bin/composer"
                 sh "composer -V"
-                sh "sudo apt install npm -y && php5.6-mysql/php7.2-mysql"
+                sh "sudo apt install npm"
                 sh "cd /var/lib/jenkins/workspace && npm install"
                 sh "pwd"
+                sh "php artisan serve"
                 sh "composer install"
+                sh "php artisan migrate"
                 sh "vendor/bin/phpunit"
             }
         }     
