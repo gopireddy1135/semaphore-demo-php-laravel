@@ -15,7 +15,7 @@ pipeline {
                 sh "cd /var/lib/jenkins/workspace && npm install"
                 sh "pwd"
                 sh "composer install"
-                sh "php artisan migrate -y"
+                sh "php artisan migrate:rollback"
                 sh "vendor/bin/phpunit"
             }
         }     
