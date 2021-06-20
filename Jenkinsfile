@@ -27,6 +27,7 @@ pipeline {
        }
         stage ("code quality") {
           steps {
+                sh "sudo apt-get install sonarqube"
           }
        }        
    }      
