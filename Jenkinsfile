@@ -21,6 +21,11 @@ pipeline {
                 sh "sudo chmod +x phpunit-9.5.phar"
                 sh "php phpunit-9.5.phar --version"
                 sh "./phpunit-9.5.phar --version"
+                sh "sudo apt-get install curl libcurl3 libcurl3-dev php"
+                sh "composer require laravel/dusk"
+                sh "composer install"
+                sh "composer dump-autoload"
+                sh "php artisan dusk"
                 sh "php tests/CreatesApplication.php"
                 
           }
