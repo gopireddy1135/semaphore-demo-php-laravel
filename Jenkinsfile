@@ -27,7 +27,7 @@ pipeline {
        }
         stage ("code quality") {
           steps {
-                sh "sh phpunit --log-junit 'reports/unitreport.xml' --coverage-html 'reports/coverage' --coverage-clover 'reports/coverage/coverage.xml' test/"
+                sh "phpunit --log-junit 'reports/unitreport.xml' --coverage-html 'reports/coverage' --coverage-clover 'reports/coverage/coverage.xml' test"
           }
        }        
    }      
