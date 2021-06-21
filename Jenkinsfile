@@ -17,6 +17,9 @@ pipeline {
                 sh "composer install"
                 sh "php artisan migrate:rollback"
                 sh "sudo apt-get install php-sqlite3 -y"
+                sh "wget https://phar.phpunit.de/phpunit-9.5.phar"
+                sh "sudo chmod +x phpunit-9.5.phar"
+                sh "php phpunit-9.5.phar --version"
                 sh "vendor/bin/phpunit"
           }
        }
