@@ -28,7 +28,6 @@ pipeline {
         stage('Test') {
           steps {
                 sh "vendor/bin/phpunit"
-                sh "vendor/bin/phpunit --testdox tests"
           }
        }
         stage ("code quality") {
