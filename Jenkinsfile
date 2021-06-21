@@ -21,7 +21,7 @@ pipeline {
                 sh "sudo chmod +x phpunit-9.5.phar"
                 sh "php phpunit-9.5.phar --version"
                 sh "./phpunit-9.5.phar --version"
-                sh "phpunit Unit"
+                sh "phpunit"
                 
           }
        }
