@@ -26,13 +26,17 @@ pipeline {
         stage('Test') {
           steps {
                 sh "php vendor/bin/phpunit"
-                sh "php artisan make:test"
                 sh "vendor/bin/phpunit"
           }
        }
-        stage ("code quality") {
+        stage ("code quality SonarQube") {
+          environment {
+        scannerHome = tool 'SonarQubeScanner'
+    }
           steps {
-                sh "phpunit --log-junit 'reports/unitreport.xml' --coverage-html 'reports/coverage' --coverage-clover 'reports/coverage/coverage.xml' tests"
+          withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+            }
           }
        }        
    }      
