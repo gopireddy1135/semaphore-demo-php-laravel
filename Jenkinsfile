@@ -32,9 +32,9 @@ pipeline {
         stage ("code quality SonarQube") {
           steps {
             script {
-                          def scannerHome = tool 'fosslinxsonar';
-                          withSonarQubeEnv("fosslinxSonarqubeserver") {
-                          sh "${tool("fosslinxsonar")}/bin/sonar-scanner"
+                          def scannerHome = tool 'sonarscanner 4.3';
+                          withSonarQubeEnv("SonarQube") {
+                          sh "${tool("svannerHome")}/opt/sonarqube/sonar-scanner"
                       }
                  }
             }
