@@ -26,7 +26,7 @@ pipeline {
         stage('Test') {
           steps {
                 sh "php vendor/bin/phpunit"
-                sh "php artisan tests"
+                sh "php artisan test"
                 sh "vendor/bin/phpunit"
           }
        }
