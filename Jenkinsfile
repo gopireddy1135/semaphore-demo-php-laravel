@@ -30,12 +30,10 @@ pipeline {
           }
        }
         stage ("code quality SonarQube") {
-          environment {
-        scannerHome = tool 'SonarQubeScanner'
-    }
-          steps {
-          withSonarQubeEnv('sonarqube') {
-            sh "${scannerHome}/bin/sonar-scanner"
+          def scannerHome = tool name: 'sonar_scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
+          withSonarQubeEnv('SonarQube') {
+          sh "${scannerHome}/bin/sonar-scanner"
+        
             }
           }
        }        
