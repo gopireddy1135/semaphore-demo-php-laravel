@@ -21,11 +21,6 @@ pipeline {
                 sh "sudo chmod +x phpunit-9.5.phar"
                 sh "php phpunit-9.5.phar --version"
                 sh "./phpunit-9.5.phar --version"
-                #sh "php artisan dusk"
-                #sh "composer dump-autoload"
-                #sh "php artisan dusk"
-                #sh "php tests/CreatesApplication.php"
-                
           }
        }
         stage('Test') {
