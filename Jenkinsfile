@@ -20,16 +20,14 @@ pipeline {
                 sh "wget https://phar.phpunit.de/phpunit-9.5.phar"
                 sh "sudo chmod +x phpunit-9.5.phar"
                 sh "php phpunit-9.5.phar --version"
-                sh "./phpunit-9.5.phar --version"
-                sh "composer require --dev laravel/dusk"
-                sh "php artisan dusk:install"
-                sh "php artisan dusk"
           }
        }
         stage('Test') {
           steps {
                 sh "php vendor/bin/phpunit"
                 sh "vendor/bin/phpunit"
+                sh "php artisan dusk:install"
+                sh "php artisan dusk"
           }
        }
         stage ("code quality SonarQube") {
