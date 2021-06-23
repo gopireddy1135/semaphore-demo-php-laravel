@@ -21,6 +21,8 @@ pipeline {
                 sh "sudo chmod +x phpunit-9.5.phar"
                 sh "php phpunit-9.5.phar --version"
                 sh "./phpunit-9.5.phar --version"
+                sh "laravel new dusk-scraper"
+                sh "composer require --dev laravel/dusk"
                 sh "php artisan dusk:install"
                 sh "php artisan dusk"
           }
