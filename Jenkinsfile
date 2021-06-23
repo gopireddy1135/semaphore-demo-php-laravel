@@ -33,10 +33,9 @@ pipeline {
         stage ("code quality SonarQube") {
           steps {
             script {
-                   withSonarQubeEnv ('Jenkins-sonar-server'){
                    sh "pwd"
                    sh "/opt/sonar_scanner/bin/sonar-scanner -Dsonar.projectKey=ramuloramula -Dsonar.sources=. "
-                      }
+                      
                  }
             }
        }        
