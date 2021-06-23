@@ -27,6 +27,7 @@ pipeline {
                 sh "php vendor/bin/phpunit"
                 sh "vendor/bin/phpunit"
                 sh "wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+                sh "sudo dpkg -i google-chrome-stable_current_amd64.deb"
                 sh "php artisan dusk:install"
                 sh "php artisan dusk"
           }
