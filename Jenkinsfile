@@ -29,15 +29,14 @@ pipeline {
                 sh "wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
                 sh "sudo dpkg -i google-chrome-stable_current_amd64.deb"
                 sh "php artisan dusk:install"
-                sh "php artisan dusk"
           }
        }
         stage ("code quality SonarQube") {
           steps {
             script {
-                          def scannerHome = tool 'sonarscanner 4.3';
+                          def scannerHome = tool 'sonarscanner 2.13.1';
                           withSonarQubeEnv("SonarQube") {
-                          sh "${tool("scannerHome")}/opt/sonarqube/sonar-scanner"
+                          sh "${tool("scannerHome")}/opt/sonar_scanner"
                       }
                  }
             }
