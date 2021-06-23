@@ -33,9 +33,14 @@ pipeline {
         stage ("code quality SonarQube") {
           steps {
             script {
-                          def scannerHome = tool 'sonarscanner 2.13.1';
-                          withSonarQubeEnv("SonarQube") {
-                          sh "${tool("scannerHome")}/opt/sonar_scanner"
+                   def scannerHome = tool 'sonarqube';
+                   withSonarQubeEnv("sonarqube-container") {
+                   sh "${tool("sonarqube")}/bin/sonar-scanner \
+                  -Dsonar.projectKey=test-node-js \
+                  -Dsonar.sources=. \
+                  -Dsonar.css.node=. \
+                  -Dsonar.host.url=http://localhost:9000 \
+                  -Dsonar.login=513118b8995882c35ab0c3416578e6d63299c90e"
                       }
                  }
             }
